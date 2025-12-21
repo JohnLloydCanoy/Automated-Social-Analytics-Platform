@@ -7,5 +7,6 @@
 **Supabase** - for the backend and database management <br>
 **Next.js** - for the frontend <br>
 
+# Documentation 📷 
 
-
+![This is made on figma where we have the ideal interface of the app, optionally making it light and darkmode](./Documentation/IdealDashBoard.png)
