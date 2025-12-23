@@ -10,3 +10,7 @@
 # Documentation 📷 
 
 ![This is made on figma where we have the ideal interface of the app, optionally making it light and darkmode](./Documentation/IdealDashBoard.png)
+
+# Automated Social Analytics Platform(ASAP) OFFICIAL LOGO
+
+![This is the Official Logo for the ASAP System](./Documentation/ASAP%20LOGO.png)
