@@ -1,6 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Navigation from "./navigation";
+import LandingPage from "./landingpage";
+import AboutUs from "./aboutUs";
+import Services from "./services";
+import Blog from "./blog";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -22,21 +26,24 @@ export default function Home() {
 
   return (
     
-    <main className="flex min-h-screen flex-col items-center justify-center p-10">
+    <main className="  justify-center ">
       <Navigation />
-
-      <h1 className="text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
+      <LandingPage />
+      <AboutUs />
+      <Services />
+      <Blog />
+      <h1 className=" items-center flex flex-col text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
         ASAP DASHBOARD
       </h1>
 
       {/* STATUS LIGHT */}
-      <div className={`mb-8 px-4 py-2 rounded-full text-sm font-mono border ${
+      <div className={` items-center flex flex-col mb-8 px-4 py-2 rounded-full text-sm font-mono border ${
         status === "Connected" ? "border-green-500 text-green-400 bg-green-900/20" : "border-red-500 text-red-400 bg-red-900/20"
       }`}>
         ● System Status: {status}
       </div>
       {/* DATA DISPLAY */}
-      <div className="w-full max-w-2xl grid gap-4">
+      <div className=" items-center flex flex-col w-full max-w-2xl grid gap-4">
         {posts.length === 0 ? (
           <p className="text-center text-gray-500">No posts found in Supabase.</p>
         ) : (
@@ -48,6 +55,21 @@ export default function Home() {
           ))
         )}
       </div>
+      <footer>
+        <p className="text-center text-gray-500 mt-16 mb-8">
+          &copy; 2024 Automated Social Analytics Platform (ASAP). All rights reserved.
+        </p>
+        <p>socials</p>
+        <p>twitter</p>
+        <p>linkedin</p>
+        <p>facebook</p>
+        <p>instagram</p>
+        <p>youtube</p>
+        <p>tiktok</p>
+        <p>pinterest</p>
+        <p>github</p>
+      
+      </footer>
     </main>
   );
 }

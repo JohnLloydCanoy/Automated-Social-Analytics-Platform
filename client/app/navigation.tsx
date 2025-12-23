@@ -3,9 +3,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navigationLinks = [
-    { href: "/#", label: "Home" },
-    { href: "/#", label: "About" },
-    { href: "/#", label: "Contact" },
+    { href: "/#Home", label: "Home" },
+    { href: "/#AboutUs", label: "About Us" },
+    { href: "/#Services", label: "Services" },
+    { href: "/#Blog", label: "Blog" },
+    { href: "/#SignIn", label: "Sign In" },
+    { href: "/#Login", label: "LOG IN" },
 ];
 
 export default function Navigation() {
