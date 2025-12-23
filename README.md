@@ -13,7 +13,7 @@
 
 # Automated Social Analytics Platform(ASAP) OFFICIAL LOGO
 
-<img src="./Documentation/ASAP%20LOGO.png" alt="This is the Official Logo for the ASAP System" width="300" /> <img src="./Documentation/ASAP.png" alt="This is the Official Logo for the ASAP System" width="300" />
+<img src="./Documentation/ASAP-LOGO.png" alt="This is the Official Logo for the ASAP System" width="300" /> <img src="./Documentation/ASAP.png" alt="This is the Official Logo for the ASAP System" width="300" />
 
 
 

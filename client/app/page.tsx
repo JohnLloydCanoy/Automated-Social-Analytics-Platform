@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Navigation from "./navigation";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -20,7 +21,10 @@ export default function Home() {
   }, []);
 
   return (
+    
     <main className="flex min-h-screen flex-col items-center justify-center p-10">
+      <Navigation />
+
       <h1 className="text-5xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
         ASAP DASHBOARD
       </h1>
@@ -31,7 +35,6 @@ export default function Home() {
       }`}>
         ● System Status: {status}
       </div>
-
       {/* DATA DISPLAY */}
       <div className="w-full max-w-2xl grid gap-4">
         {posts.length === 0 ? (
