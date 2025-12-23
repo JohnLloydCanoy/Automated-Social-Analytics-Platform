@@ -13,4 +13,4 @@
 
 # Automated Social Analytics Platform(ASAP) OFFICIAL LOGO
 
-![This is the Official Logo for the ASAP System](./Documentation/ASAP%20LOGO.png)
+<img src="./Documentation/ASAP%20LOGO.png" alt="This is the Official Logo for the ASAP System" width="300" />
