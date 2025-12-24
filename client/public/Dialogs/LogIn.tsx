@@ -43,7 +43,13 @@ export default function LogIn({ isOpen, onClose }: LogInProps) {
                 >
                     ✕
                 </button>
-
+                <img
+                    src="/ASAP.png" 
+                    alt="ASAP Logo" 
+                    width={110} 
+                    height={80}
+                    className="mx-auto mb-4"
+                    />
                 <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Log In</h2>
                 
                 <form className="space-y-4">
