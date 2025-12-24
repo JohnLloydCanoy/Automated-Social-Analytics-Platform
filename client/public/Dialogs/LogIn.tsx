@@ -46,7 +46,7 @@ export default function LogIn({ isOpen, onClose }: LogInProps) {
                 <img
                     src="/ASAP.png" 
                     alt="ASAP Logo" 
-                    width={110} 
+                    width={80} 
                     height={80}
                     className="mx-auto mb-4"
                     />
@@ -60,12 +60,22 @@ export default function LogIn({ isOpen, onClose }: LogInProps) {
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-black"
                             placeholder="Enter your email" 
                         />
+                        <label className="block text-sm font-medium text-gray-700 mt-4">Password</label>
+                        <input 
+                            type="password"
+                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-black"
+                            placeholder="Enter your password" 
+                        />
                     </div>
-                    {/* Add Password input here later */}
                     
                     <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
-                        Sign In
+                        Log In
                     </button>
+                    <label className="block text-sm font-medium text-gray-600 text-center">Or</label>
+                    <button className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">
+                        Log In with Google
+                    </button>
+                    <label className="block text-sm font-medium text-gray-600 text-center">you dont have an account? Sign Up</label>
                 </form>
 
             </div>
