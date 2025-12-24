@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 export default function AboutUs() {
     const pathname = usePathname();
     return (
-        <section id="AboutUs" className="bg-[#1B3166] w-full scroll-mt-20 mb-16 mt-5 px-50 py-5">
+        <section id="AboutUs" className="bg-[#1B3166] w-full scroll-mt-20 mt-5 px-50 py-5">
             <div className="flex items-center justify-between gap-10">
-                <img src="/Icon.png" alt="GuyInTheChair" width={500} height={500} />
+                <img src="/SittingIcon.png" alt="GuyInTheChair" width={500} height={500} />
                 <div className="flex flex-col text-left max-w-lg">
                     <h2 className="text-5xl font-extrabold mb-6 text-black leading-tight">
                         About Us

@@ -1,10 +1,68 @@
 "use client";
+import { useEffect } from "react";
 
-export default function LogIn() {
+// 1. Define what instructions this component accepts
+interface LogInProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+export default function LogIn({ isOpen, onClose }: LogInProps) {
+    // 2. If isOpen is false, return nothing (don't draw the box)
+    useEffect(() => {
+        if (isOpen) {
+            // Freeze the body
+            document.body.style.overflow = "hidden";
+        } else {
+            // Unfreeze (just in case)
+            document.body.style.overflow = "unset";
+        }
+
+        // Cleanup: When the modal closes (unmounts), unfreeze the body
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isOpen]);
+    if (!isOpen) return null;
+
     return (
-        <main id = "Login" className="  w-full max-w-6xl mx-auto mb-16 mt-10 px-4">
-            <h1>Log In Dialog</h1>
+        <div  id = "LogIn" className="fixed inset-0 flex items-center justify-center z-[100]">
             
-        </main>
+            {/* Dark Background (Clicking this closes the modal) */}
+            <div 
+                className="absolute inset-0 bg-[#08193f] opacity-80 backdrop-blur-sm"
+            ></div>
+
+            {/* The White Box */}
+            <div className="bg-white p-8 rounded-lg shadow-xl w-96 relative z-10 animate-fade-in-up">
+                
+                {/* Close Button (X) */}
+                <button 
+                    onClick={onClose}
+                    className="absolute top-4 right-4 text-gray-400 hover:text-red-500 font-bold"
+                >
+                    ✕
+                </button>
+
+                <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Log In</h2>
+                
+                <form className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Email</label>
+                        <input 
+                            type="email" 
+                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-black"
+                            placeholder="Enter your email" 
+                        />
+                    </div>
+                    {/* Add Password input here later */}
+                    
+                    <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+                        Sign In
+                    </button>
+                </form>
+
+            </div>
+        </div>
     );
 }
