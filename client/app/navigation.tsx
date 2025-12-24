@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import LogIn from "../public/Dialogs/LogIn";
+import SignUp from "../public/Dialogs/SignIn"; // Ensure this path is correct
 
 const navigationLinks = [
     { id: "Home", label: "Home" },
@@ -12,8 +13,22 @@ const navigationLinks = [
 ];
 
 export default function Navigation() {
-    const [activeSection, setActiveSection] = useState<string>("Home");
-    const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
+    // 1. FIXED: Added missing activeSection state
+    const [activeSection, setActiveSection] = useState("Home");
+    
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+
+    // 2. Define the Switching Logic
+    const openSignUp = () => {
+        setIsLoginOpen(false); // Close Login
+        setIsSignUpOpen(true); // Open Sign Up
+    };
+
+    const openLogin = () => {
+        setIsSignUpOpen(false); // Close Sign Up
+        setIsLoginOpen(true);   // Open Login
+    };
 
     useEffect(() => {
         // THE OBSERVER: Watches for sections entering the screen
@@ -27,18 +42,19 @@ export default function Navigation() {
             },
             { threshold: 0.8 } // Triggers when 80% of the section is visible
         );
-    navigationLinks.forEach((link) => {
-                const section = document.getElementById(link.id);
-                if (section) {
-                    observer.observe(section);
-                }
-            });
+        navigationLinks.forEach((link) => {
+            const section = document.getElementById(link.id);
+            if (section) {
+                observer.observe(section);
+            }
+        });
 
-            return () => observer.disconnect();
+        return () => observer.disconnect();
     }, []);
+
     return (
         <>
-            <nav className="fixed top-2 left-2 right-2 max-w-11xl mx-auto bg-[#FFFFFF] p-4 rounded-lg shadow-md z-50" >
+            <nav className="fixed top-2 left-2 right-2 max-w-11xl mx-auto bg-[#FFFFFF] p-4 rounded-lg shadow-md z-50">
                 <div className="flex items-center justify-between mx-4">
                     <div className="flex items-center gap-4">
                         <img 
@@ -46,7 +62,7 @@ export default function Navigation() {
                             alt="ASAP Logo" 
                             width={40} 
                             height={40} 
-                            />
+                        />
                         <h1 className="text-[#135CF4] font-black text-sm md:text-base leading-tight">
                             AUTOMATED SOCIAL <br /> ANALYTICS PLATFORM
                         </h1>
@@ -80,9 +96,18 @@ export default function Navigation() {
                     </ul>
                 </div>
             </nav>
+
+            {/* 3. FIXED: Rendered BOTH dialogs and passed the switch functions */}
             <LogIn 
-                isOpen={isLoginOpen}
-                onClose={() => setIsLoginOpen(false)}
+                isOpen={isLoginOpen} 
+                onClose={() => setIsLoginOpen(false)} 
+                onSwitchToSignUp={openSignUp} // <--- Connected!
+            />
+
+            <SignUp 
+                isOpen={isSignUpOpen} 
+                onClose={() => setIsSignUpOpen(false)}
+                onSwitchToLogin={openLogin}   // <--- Connected!
             />
         </>
     );

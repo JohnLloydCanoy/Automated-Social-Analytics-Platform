@@ -1,14 +1,46 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState, FormEvent } from "react";
 
 // 1. Define what instructions this component accepts
 interface LogInProps {
     isOpen: boolean;
     onClose: () => void;
+    onSwitchToSignUp: () => void; 
 }
 
-export default function LogIn({ isOpen, onClose }: LogInProps) {
-    // 2. If isOpen is false, return nothing (don't draw the box)
+export default function LogIn({ isOpen, onClose, onSwitchToSignUp }: LogInProps) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    // 2. Handle form submission
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        setError("");
+        setLoading(true);
+
+        try {
+            // TODO: Implement actual authentication logic with Supabase
+            // Example:
+            // const response = await fetch('/api/auth/login', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email, password })
+            // });
+            // if (!response.ok) throw new Error('Login failed');
+            
+            console.log("Login attempt:", { email, password });
+            // Placeholder success
+            alert("Login functionality coming soon!");
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "Login failed. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // 3. If isOpen is false, return nothing (don't draw the box)
     useEffect(() => {
         if (isOpen) {
             // Freeze the body
@@ -75,7 +107,14 @@ export default function LogIn({ isOpen, onClose }: LogInProps) {
                     <button className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">
                         Log In with Google
                     </button>
-                    <label className="block text-sm font-medium text-gray-600 text-center">you dont have an account? Sign Up</label>
+                    <label className="block text-sm font-medium text-gray-600 text-center"> you dont have an account? 
+                        <button 
+                            type="button" 
+                            onClick={onSwitchToSignUp} // <--- This triggers the switch!
+                            className="text-blue-600 hover:underline ml-1 font-bold"
+                        > Sign Up
+                        </button>
+                    </label>
                 </form>
 
             </div>
