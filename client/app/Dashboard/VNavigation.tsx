@@ -1,5 +1,5 @@
 "use client";
-import { LayoutDashboard, Bot, CalendarDays, BarChart, FileText,User, Settings, LogOut, Sparkles } from "lucide-react";
+import { LayoutDashboard, Bot, CalendarDays, BarChart, FileText,User, Settings, LogOut, Sparkles, Bell } from "lucide-react";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
@@ -34,7 +34,7 @@ export default function VNavigation() {
     }, []);
     return (
         <>
-            <nav className="bg-[#ffffff] p-4 text-black max-w-90 max padding-y-10 h-screen rounded-2xl ml-2 mt-2 shadow-black/10 shadow-lg mb-2">
+            <nav className="bg-[#ffffff] p-4 text-black max-w-90 max padding-y-10 h-full rounded-2xl shadow-black/10 shadow-lg">
                 <div className="flex items-center justify-start gap-4">
                     <img
                             src="/ASAP.png" 
