@@ -1,4 +1,4 @@
-export default function Dnavigation() {
+export default function Hnavigation() {
     return (
         <nav className="bg-blue-600 p-4 text-white">
             <ul className="flex space-x-4">
