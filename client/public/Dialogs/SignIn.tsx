@@ -3,6 +3,7 @@ import { useEffect, useState, ChangeEvent, FormEvent } from "react";
 import { supabase } from "@/lib/supabaseClient"; 
 import GlobalLoader from "../Components/GlobalLoader";
 import { useAsyncAction } from "@/lib/useAsyncAction"; // 1. Import the hook
+import { useRouter } from "next/navigation";
 
 interface SignUpProps {
     isOpen: boolean;
@@ -16,6 +17,7 @@ export default function SignUp({ isOpen, onClose, onSwitchToLogin }: SignUpProps
     // - isLoading: True/False switch
     // - error: Stores error messages if something fails
     // - start/stop/fail: Functions to control the process
+    const router = useRouter();
     const { isLoading, error, start, stop, fail } = useAsyncAction(10000); 
 
     // 3. FORM DATA STATE (Keep this!)
@@ -40,10 +42,8 @@ export default function SignUp({ isOpen, onClose, onSwitchToLogin }: SignUpProps
     // 4. THE UPDATED SUBMIT FUNCTION
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        
         // START THE TIMER
         start(); 
-
         try {
             // STEP A: Basic Validation
             if (formData.password !== formData.confirmPassword) {
@@ -65,14 +65,11 @@ export default function SignUp({ isOpen, onClose, onSwitchToLogin }: SignUpProps
                     }
                 }
             });
-
             if (supabaseError) throw supabaseError;
-
             // STEP C: SUCCESS
             stop(); // Stop the loader
-            alert("Success! Please check your email to verify your account.");
             onClose(); 
-
+            router.push("/Dashboard"); // Redirect to Dashboard
         } catch (err: any) {
             // STEP D: FAILURE
             // Pass the error message to our hook so it can display it if we want
