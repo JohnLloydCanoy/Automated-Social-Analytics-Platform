@@ -110,7 +110,7 @@ export default function LogIn({ isOpen, onClose, onSwitchToSignUp }: LogInProps)
                     <label className="block text-sm font-medium text-gray-600 text-center"> you dont have an account? 
                         <button 
                             type="button" 
-                            onClick={onSwitchToSignUp} // <--- This triggers the switch!
+                            onClick={onSwitchToSignUp} 
                             className="text-blue-600 hover:underline ml-1 font-bold"
                         > Sign Up
                         </button>
