@@ -3,7 +3,7 @@ import { useEffect, useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
 import { useAsyncAction } from "@/lib/useAsyncAction";
-import GlobalLoader from "../Components/GlobalLoader";
+import GlobalLoader from "../../../Components/GlobalLoader";
 
 // 1. Define what instructions this component accepts
 interface LogInProps {

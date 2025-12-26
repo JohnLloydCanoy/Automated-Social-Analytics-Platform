@@ -1,8 +1,8 @@
 "use client";
-import Button from "@/public/Components/Button";
+import Button from "@/Components/Button";
 import { useState } from "react";
-import LogIn from "../public/Dialogs/LogIn";
-import SignUp from "../public/Dialogs/SignIn";
+import LogIn from "../auth/login/page";
+import SignUp from "../auth/register/page";
 
 
 

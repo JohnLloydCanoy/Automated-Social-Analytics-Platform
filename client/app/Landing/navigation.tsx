@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import LogIn from "../public/Dialogs/LogIn";
-import SignUp from "../public/Dialogs/SignIn"; // Ensure this path is correct
+import LogIn from "../auth/login/page";
+import SignUp from "../auth/register/page"; // Ensure this path is correct
 
 const navigationLinks = [
     { id: "Home", label: "Home" },

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, ChangeEvent, FormEvent } from "react";
 import { supabase } from "@/lib/supabaseClient"; 
-import GlobalLoader from "../Components/GlobalLoader";
+import GlobalLoader from "../../../Components/GlobalLoader";
 import { useAsyncAction } from "@/lib/useAsyncAction"; // 1. Import the hook
 import { useRouter } from "next/navigation";
 

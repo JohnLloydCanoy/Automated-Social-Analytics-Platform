@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import Navigation from "./navigation";
-import LandingPage from "./landingpage";
-import AboutUs from "./aboutUs";
-import Services from "./services";
-import Blog from "./blog";
+import Navigation from "./Landing/navigation";
+import LandingPage from "./Landing/landingpage";
+import AboutUs from "./Landing/aboutUs";
+import Services from "./Landing/services";
+import Blog from "./Landing/blog";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
