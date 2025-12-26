@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function AboutUs() {
+export default function aboutUs() {
     const pathname = usePathname();
     return (
         <section id="AboutUs" className="bg-[#1B3166] w-full scroll-mt-20 mt-5 px-50 py-5">

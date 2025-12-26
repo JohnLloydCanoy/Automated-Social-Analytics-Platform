@@ -1,6 +1,6 @@
 "use client";
 
-export default function Blog() {
+export default function blog() {
     return (
         <section id="Blog" className="bg-[#1B3166] w-full scroll-mt-20 mb-16 px-50 py-5">
             <div className="flex items-center justify-between gap-10">

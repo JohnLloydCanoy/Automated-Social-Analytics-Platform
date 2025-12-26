@@ -1,6 +1,6 @@
 "use client";
 
-export default function Services() {
+export default function services() {
     return (
         <section id="Services" className=" w-full scroll-mt-20  px-50 py-5">
             <div className="flex items-center justify-between gap-10">

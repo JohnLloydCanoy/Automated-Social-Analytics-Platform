@@ -1,12 +1,12 @@
 "use client";
-import Button from "@/Components/Button";
+import Button from "@/Components/ui/Button";
 import { useState } from "react";
 import LogIn from "../auth/login/page";
 import SignUp from "../auth/register/page";
 
 
 
-export default function LandingPage() {
+export default function landingPage() {
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [isSignUpOpen, setIsSignUpOpen] = useState(false);
     
