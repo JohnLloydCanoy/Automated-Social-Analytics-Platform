@@ -1,11 +1,12 @@
 "use client";
 import { LayoutDashboard, Bot, CalendarDays, BarChart, FileText,User, Settings, LogOut, Sparkles, Bell } from "lucide-react";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
 
 
 const VNavigationLinks = [
-    { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+    { name: 'Dashboard', href: '/Management/Dashboard', icon: LayoutDashboard },
     { name: 'Automate', href: '/Management/Automate', icon: Bot },
     { name: 'AI', href: '/Management/AI', icon: Sparkles }, 
     { name: 'Calendar', href: '/Management/Calendar', icon: CalendarDays },
@@ -18,6 +19,7 @@ const VNavigationLinks = [
 
 export default function VNavigation() {
     const [userName, setUserName] = useState("Loading...");
+    const pathname = usePathname();
     useEffect(() => {
         const fetchUserName = async () => {
             const { data: { user } } = await supabase.auth.getUser();
@@ -65,12 +67,12 @@ export default function VNavigation() {
                 </div>
                 <ul className="flex flex-col space-y-3 mt-0 items-start pl-10">
                     {VNavigationLinks.map((link) => {const Icon = link.icon; 
-                    
+                    const isActive = pathname === link.href;
                     return (
                         <li key={link.name}>
                             <a 
                                 href={link.href} 
-                                className="flex items-center gap-3 px-6 py-3 hover:bg-blue-50 text-gray-900 hover:text-blue-600 rounded-lg transition-all font-medium group"
+                                className={`flex items-center gap-3 px-6 py-3 hover:bg-blue-50 text-gray-900 hover:text-blue-600 rounded-lg transition-all font-medium group ${isActive ? 'bg-blue-100 text-blue-700' : ''}`}
                             >
                                 {Icon && <Icon className="w-5 h-5" />}
                                 
