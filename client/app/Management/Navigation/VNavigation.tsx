@@ -3,7 +3,7 @@ import { LayoutDashboard, Bot, CalendarDays, BarChart, FileText,User, Settings, 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
-
+import LogOutModal from "@/Components/Dialogs/logOutModal";
 
 const VNavigationLinks = [
     { name: 'Dashboard', href: '/Management/Dashboard', icon: LayoutDashboard },
@@ -14,11 +14,11 @@ const VNavigationLinks = [
     { name: 'Post', href: '/Management/Post', icon: FileText },
     { name: 'Account', href: '/Management/Account', icon: User },
     { name: 'Settings', href: '/Management/Settings', icon: Settings },
-    { name: 'Logout', href: '/Management/Logout', icon: LogOut },
 ];
 
 export default function VNavigation() {
     const [userName, setUserName] = useState("Loading...");
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
     const pathname = usePathname();
     useEffect(() => {
         const fetchUserName = async () => {
@@ -81,8 +81,21 @@ export default function VNavigation() {
                         </li>
                     );
                 })}
+                    <li>
+                        <button 
+                            onClick={() => setIsLogoutModalOpen(true)}
+                            className="flex items-center gap-3 px-6 py-3 hover:bg-red-50 text-gray-900 hover:text-red-600 rounded-lg transition-all font-medium group w-full text-left"
+                        >
+                            <LogOut className="w-5 h-5" />
+                            <span>Logout</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
+            <LogOutModal 
+                isOpen={isLogoutModalOpen} 
+                onClose={() => setIsLogoutModalOpen(false)} 
+            />
         </>
     );
 }
