@@ -1,7 +1,7 @@
 import Hnavigation from "../Navigation/HNavigation";
 import VNagivation from "../Navigation/VNavigation";
 
-export default function AutomatePage() {
+export default function PostPage() {
     return (
         <div className="flex h-screen overflow-hidden p-2 bg-gray-50">
             <aside className="flex shrink-0"><VNagivation /></aside>
@@ -10,14 +10,14 @@ export default function AutomatePage() {
                 <main className="flex-1 overflow-y-auto p-2 pb-20 relative">
                     <div className="bg-white p-6 rounded-2xl shadow-lg shadow-black/5 mb-4">
                         <h1 className="text-gray-500 font-medium">Hello, Good Day!</h1>
-                        <h1 className="text-3xl font-bold mb-2 text-gray-800">Automate</h1>
-                        <p className="text-gray-400">Streamline your social media management with automation.</p>
+                        <h1 className="text-3xl font-bold mb-2 text-gray-800">Post Management</h1>
+                        <p className="text-gray-400">Manage your social media posts effectively.</p>
                     </div>
                     <div className="bg-white p-6 rounded-2xl shadow-lg shadow-black/5 mt-2">
-                        <h1 className="font-black text-xl text-gray-800">Automation Tools</h1>
-                        <p className="text-gray-500 text-sm mt-1">Set up automated tasks to enhance your social media presence.</p>
-                        {/* Automation content goes here */}
-                    </div>
+                        <h1 className="font-black text-xl text-gray-800">Post Dashboard</h1>    
+                        <p className="text-gray-500 text-sm mt-1">Create, edit, and manage your social media posts.</p>
+                        {/* Post management content goes here */}
+                    </div>  
                 </main>
             </div>
         </div>

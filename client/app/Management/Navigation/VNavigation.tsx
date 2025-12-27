@@ -3,16 +3,17 @@ import { LayoutDashboard, Bot, CalendarDays, BarChart, FileText,User, Settings, 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
+
 const VNavigationLinks = [
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-    { name: 'Automate', href: '/automate', icon: Bot },
-    { name: 'AI Component', href: '/ai', icon: Sparkles }, 
-    { name: 'Calendar', href: '/calendar', icon: CalendarDays },
-    { name: 'Analytics', href: '/analytics', icon: BarChart },
-    { name: 'Post', href: '/reports', icon: FileText },
-    { name: 'Account', href: '/account', icon: User },
-    { name: 'Settings', href: '/settings', icon: Settings },
-    { name: 'Logout', href: '/logout', icon: LogOut },
+    { name: 'Automate', href: '/Management/Automate', icon: Bot },
+    { name: 'AI', href: '/Management/AI', icon: Sparkles }, 
+    { name: 'Calendar', href: '/Management/Calendar', icon: CalendarDays },
+    { name: 'Analytics', href: '/Management/Analytics', icon: BarChart },
+    { name: 'Post', href: '/Management/Post', icon: FileText },
+    { name: 'Account', href: '/Management/Account', icon: User },
+    { name: 'Settings', href: '/Management/Settings', icon: Settings },
+    { name: 'Logout', href: '/Management/Logout', icon: LogOut },
 ];
 
 export default function VNavigation() {
