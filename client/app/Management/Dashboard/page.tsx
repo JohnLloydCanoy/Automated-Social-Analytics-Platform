@@ -1,9 +1,9 @@
 "use client"; 
 import { useState } from "react";
-import Hnavigation from "./HNavigation";
-import VNagivation from "./VNavigation";
+import Hnavigation from "../Navigation/HNavigation";
+import VNagivation from "../Navigation/VNavigation";
 import { FaPlus } from "react-icons/fa";
-import { MASTER_PLATFORMS } from "./data/platform"; 
+import { MASTER_PLATFORMS } from "../data/platform"; 
 import SocialPlatformCard from "@/Components/SocialPlatformCard"; 
 import AddPlatformModal from "@/Components/AddPlatformModal"; 
 

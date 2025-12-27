@@ -20,7 +20,7 @@ export default function LogIn({ isOpen, onClose, onSwitchToSignUp }: LogInProps)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    // 2. Handle form submission
+    // 2. Handle form submission 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         start(); // Start the loader
@@ -37,7 +37,7 @@ export default function LogIn({ isOpen, onClose, onSwitchToSignUp }: LogInProps)
             // If successful:
             stop();
             onClose();
-            router.push("/Dashboard"); // Redirect to Dashboard
+            router.push("/Management/Dashboard"); // Redirect to Dashboard
 
         } catch (err: any) {
             // Pass the error message to our hook

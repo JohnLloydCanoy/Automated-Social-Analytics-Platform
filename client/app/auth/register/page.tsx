@@ -69,7 +69,7 @@ export default function SignUp({ isOpen, onClose, onSwitchToLogin }: SignUpProps
             // STEP C: SUCCESS
             stop(); // Stop the loader
             onClose(); 
-            router.push("/Dashboard"); // Redirect to Dashboard
+            router.push("/Management/Dashboard"); // Redirect to Dashboard
         } catch (err: any) {
             // STEP D: FAILURE
             // Pass the error message to our hook so it can display it if we want
