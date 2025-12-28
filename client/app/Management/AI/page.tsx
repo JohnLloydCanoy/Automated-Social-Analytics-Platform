@@ -23,7 +23,7 @@ export default function AIPage() {
                                 <Introduction />
                             </div>
                         </div>
-                        {/* Chat Input Section - Fixed at Bottom */}
+                        {/* Chat Input Section */}
                         <ChatBox />
                     </div>
                 </main>
