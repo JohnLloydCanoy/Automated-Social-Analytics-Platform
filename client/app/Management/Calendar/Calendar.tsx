@@ -49,7 +49,6 @@ export default function MyCustomCalendar() {
             endAccessor="end"
             style={{ height: 500 }}
             
-            // THIS IS THE MAGIC PART
             components={{
                 event: CustomEvent,   
                 toolbar: CustomToolbar 

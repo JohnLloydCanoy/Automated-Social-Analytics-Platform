@@ -1,21 +1,12 @@
-import os
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from supabase import create_client, Client
-from dotenv import load_dotenv
+from app.api.endpoints import router as api_router
 
-# 1. Load the secret .env file
-load_dotenv()
+# Initialize FastAPI
+app = FastAPI(title="ASAP Brain", version="1.0")
 
-# 2. Initialize Supabase Connection
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)
-
-# 3. Initialize FastAPI
-app = FastAPI()
-
-# 4. Allow Next.js (Port 3000) to talk to this API
+# Allow Next.js (Port 3000)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -24,14 +15,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- ROUTES ---
+# Connect the routes from the api folder
+# This adds "/api" to the beginning of all routes in that file
+app.include_router(api_router, prefix="/api")
 
 @app.get("/")
 def read_root():
     return {"status": "active", "message": "ASAP Brain is connected!"}
 
-@app.get("/api/posts")
-def get_posts():
-    # Fetch all rows from the 'posts' table in Supabase
-    response = supabase.table("posts").select("*").execute()
-    return response.data
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

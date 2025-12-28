@@ -1,6 +1,5 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-// Helper to pick the right icon based on your data
 const getIcon = (type: string) => {
     switch (type.toLowerCase()) {
         case "facebook": return <FaFacebook className="text-blue-600" />;
@@ -11,7 +10,7 @@ const getIcon = (type: string) => {
     }
 };
 
-// The Actual Component that replaces the blue bar
+
 export default function CustomEvent({ event }: any) {
     return (
         <div className="flex items-center gap-2 p-1 h-full">
