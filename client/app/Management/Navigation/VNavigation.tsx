@@ -1,9 +1,9 @@
 "use client";
 import { LayoutDashboard, Bot, CalendarDays, BarChart, FileText,User, Settings, LogOut, Sparkles, Bell } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { supabase } from "@/lib/supabaseClient";
 import LogOutModal from "@/Components/Dialogs/logOutModal";
+import { useUserName } from "@/functions/nameGetter";
 
 const VNavigationLinks = [
     { name: 'Dashboard', href: '/Management/Dashboard', icon: LayoutDashboard },
@@ -17,24 +17,9 @@ const VNavigationLinks = [
 ];
 
 export default function VNavigation() {
-    const [userName, setUserName] = useState("Loading...");
+    const { userName } = useUserName();
     const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
     const pathname = usePathname();
-    useEffect(() => {
-        const fetchUserName = async () => {
-            const { data: { user } } = await supabase.auth.getUser();
-            if (user && user.user_metadata) {
-                const first = user.user_metadata.first_name || "";
-                const last = user.user_metadata.last_name || "";
-                if (first || last) {
-                    setUserName(`${first} ${last}`.trim());
-                } else {
-                    setUserName("User");
-                }
-            }
-        };
-        fetchUserName();
-    }, []);
     return (
         <>
             <nav className="bg-[#ffffff] p-4 text-black max-w-90 max padding-y-10 h-full rounded-2xl shadow-black/10 shadow-lg">
