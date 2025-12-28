@@ -13,25 +13,25 @@ const navigationLinks = [
 ];
 
 export default function Navigation() {
-    // 1. FIXED: Added missing activeSection state
+
     const [activeSection, setActiveSection] = useState("Home");
     
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [isSignUpOpen, setIsSignUpOpen] = useState(false);
 
-    // 2. Define the Switching Logic
+
     const openSignUp = () => {
-        setIsLoginOpen(false); // Close Login
-        setIsSignUpOpen(true); // Open Sign Up
+        setIsLoginOpen(false); 
+        setIsSignUpOpen(true); 
     };
 
     const openLogin = () => {
-        setIsSignUpOpen(false); // Close Sign Up
-        setIsLoginOpen(true);   // Open Login
+        setIsSignUpOpen(false); 
+        setIsLoginOpen(true);   
     };
 
     useEffect(() => {
-        // THE OBSERVER: Watches for sections entering the screen
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -97,17 +97,16 @@ export default function Navigation() {
                 </div>
             </nav>
 
-            {/* 3. FIXED: Rendered BOTH dialogs and passed the switch functions */}
             <LogIn 
                 isOpen={isLoginOpen} 
                 onClose={() => setIsLoginOpen(false)} 
-                onSwitchToSignUp={openSignUp} // <--- Connected!
+                onSwitchToSignUp={openSignUp}
             />
 
             <SignUp 
                 isOpen={isSignUpOpen} 
                 onClose={() => setIsSignUpOpen(false)}
-                onSwitchToLogin={openLogin}   // <--- Connected!
+                onSwitchToLogin={openLogin}   
             />
         </>
     );
