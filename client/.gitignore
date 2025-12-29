@@ -43,3 +43,30 @@ next-env.d.ts
 .env.local
 .DS_Store
 *.log
+
+# Add to existing client/.gitignore
+
+# Environment Variables (Extra Safety)
+.env
+.env.development
+.env.production
+.env.test
+*.local
+
+# Supabase Local
+.supabase/
+
+# User Uploads (if you add this feature later)
+public/uploads/
+uploads/
+
+# Build Artifacts
+.turbo/
+*.tsbuildinfo
+
+# Testing
+coverage/
+.nyc_output/
+
+# Sentry/Error Tracking Config
+.sentryclirc
