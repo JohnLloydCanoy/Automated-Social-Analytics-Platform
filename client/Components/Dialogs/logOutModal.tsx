@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import GlobalLoader from "../GlobalLoader";
 import { supabase } from "@/lib/supabaseClient";
 import { useAsyncAction } from "@/lib/useAsyncAction";
- 
+
 interface logOutModalProps {
     isOpen: boolean;
     onClose: () => void;

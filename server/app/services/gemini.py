@@ -2,7 +2,14 @@ import os
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
+from app.tools.data_tools import get_all_posts
 
-# Future Additions: Import the tools that will be used with Gemini
-# from server.app.services.gemini_tools.web_search import WebSearchTool
+load_dotenv()
 
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+client = genai.Client(api_key=GEMINI_API_KEY)
+
+# Importig custom tools to be used with Gemini
+project_tools =[
+    
+]
