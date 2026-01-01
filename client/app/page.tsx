@@ -5,6 +5,7 @@ import LandingPage from "./Landing/landingpage";
 import AboutUs from "./Landing/aboutUs";
 import Services from "./Landing/services";
 import Blog from "./Landing/blog";
+import {api} from "@/lib/api";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -12,15 +13,14 @@ export default function Home() {
 
   useEffect(() => {
     // 1. Ask Python (Port 8000) for the posts
-    fetch("http://127.0.0.1:8000/api/posts")
-      .then((res) => res.json())
+    api.posts.getAll()
       .then((data) => {
         setPosts(data);
-        setStatus("Connected");
+        setStatus("Connected ✅");
       })
       .catch((err) => {
         console.error(err);
-        setStatus("Error: Is the Python Backend running?");
+        setStatus("Error: Backend not reachable ❌");
       });
   }, []);
 
