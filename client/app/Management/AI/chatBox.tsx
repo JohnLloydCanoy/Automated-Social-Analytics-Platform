@@ -3,17 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { api } from "@/lib/api";
 
-// --- 1. TYPES (For Type Safety) ---
-type Role = "user" | "ai" | "error";
-
-interface Message {
-  id: string; // Unique ID is better for React keys than index
-    role: Role;
-    text: string;
-    timestamp: number;
-}
-
-// --- 2. CUSTOM HOOK (The "Brain" - Logic Layer) ---
+// --- CUSTOM HOOK (The "Brain" - Logic Layer) ---
 // This keeps your UI clean and makes testing easier.
 function useChat() {
     const [messages, setMessages] = useState<Message[]>([]);
@@ -79,7 +69,7 @@ const userMsg: Message = {
     };
     }
 
-// --- 3. UI COMPONENTS (The "Body" - Visual Layer) ---
+// --- UI COMPONENTS (The "Body" - Visual Layer) ---
 
 // A. The Message Bubble Component
 const MessageBubble = ({ message }: { message: Message }) => {
@@ -170,7 +160,7 @@ const MessageBubble = ({ message }: { message: Message }) => {
     );
     };
 
-// --- 4. MAIN COMPONENT (Putting it together) ---
+// ---  MAIN COMPONENT (Putting it together) ---
     export default function ChatBox() {
     const { messages, input, setInput, isLoading, sendMessage, messagesEndRef } = useChat();
 

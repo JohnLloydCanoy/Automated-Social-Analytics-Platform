@@ -18,7 +18,7 @@
 // CONFIGURATION
 // ============================================
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ;
 
 // Validate environment variable exists
 if (typeof window !== 'undefined' && !API_BASE_URL.startsWith('http')) {
@@ -60,6 +60,14 @@ export interface PerformanceReport {
         avg_engagement: number;
         top_performing_post: string;
     };
+}
+export type MessageRole = "user" | "ai" | "error";
+
+interface Message {
+  id: string; // Unique ID is better for React keys than index
+    role: Role;
+    text: string;
+    timestamp: number;
 }
 
 // ============================================
