@@ -1,7 +1,6 @@
 import Hnavigation from "../Navigation/HNavigation";
 import VNagivation from "../Navigation/VNavigation";
 import Introduction from "../AI/introduction";
-import ChatBox from "../AI/chatBox";
 
 export default function AIPage() {
     return (
@@ -24,7 +23,6 @@ export default function AIPage() {
                             </div>
                         </div>
                         {/* Chat Input Section */}
-                        <ChatBox />
                     </div>
                 </main>
             </div>
