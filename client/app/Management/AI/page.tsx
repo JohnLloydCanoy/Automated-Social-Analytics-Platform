@@ -1,6 +1,7 @@
 import Hnavigation from "../Navigation/HNavigation";
 import VNagivation from "../Navigation/VNavigation";
-import Introduction from "../AI/introduction";
+import ChatBox from "./chatBox";
+
 
 export default function AIPage() {
     return (
@@ -19,10 +20,11 @@ export default function AIPage() {
                             height={200}
                         />
                             <div className="text-center space-y-4 mb-12">
-                                <Introduction />
+                                
                             </div>
                         </div>
                         {/* Chat Input Section */}
+                        <ChatBox />
                     </div>
                 </main>
             </div>

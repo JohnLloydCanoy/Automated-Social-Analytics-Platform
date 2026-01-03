@@ -18,20 +18,19 @@ return (
         <AboutUs />
         <Services />
         <Blog />
-    <footer>
-        <p className="text-center text-gray-500 mt-16 mb-8">
+    <footer className="bg-[#020327] text-center p-6 text-white ">
+        <p className="text-center mb-8">
             &copy; 2024 Automated Social Analytics Platform (ASAP). All rights reserved.
         </p>
-        <p>socials</p>
-        <p>twitter</p>
-        <p>linkedin</p>
-        <p>facebook</p>
-        <p>instagram</p>
-        <p>youtube</p>
-        <p>tiktok</p>
-        <p>pinterest</p>
-        <p>github</p>
+        <div className="flex justify-center space-x-6">
+            <a href="#" className="hover:underline">Privacy Policy</a>
+            <a href="#" className="hover:underline">Terms of Service</a>
+            <a href="#" className="hover:underline">Contact Us</a>
+            <a href="#" className="hover:underline">FAQ</a>
+            
+        </div>
+
     </footer>
     </main>
-  );
+);
 }

@@ -2,7 +2,7 @@
 
 export default function blog() {
     return (
-        <section id="Blog" className="bg-[#1B3166] w-full scroll-mt-20 mb-16 px-50 py-5">
+        <section id="Blog" className="bg-[#1B3166] w-full scroll-mt-20 px-50 py-5">
             <div className="flex items-center justify-between gap-10">
                 <img src="/Icon.png" alt="BlogIcon" width={500} height={500} />
                 <div className="flex flex-col text-left max-w-lg">
