@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { api } from "@/lib/api";
+import AttachmentButton from "./AIComponents/attachmentbutton";
 
 // --- CUSTOM HOOK (The "Brain" - Logic Layer) ---
 // This keeps your UI clean and makes testing easier.
@@ -94,27 +95,14 @@ const MessageBubble = ({ message }: { message: Message }) => {
     };
 
 // B. The Input Area Component (Refined from your Code #1)
-    interface ChatInputProps {
-    value: string;
-    onChange: (val: string) => void;
-    onSend: () => void;
-    disabled: boolean;
-    }
+
 
     const ChatInput = ({ value, onChange, onSend, disabled }: ChatInputProps) => {
     return (
         <div className="w-full max-w-4xl mx-auto p-4">
         <div className="bg-white rounded-full shadow-lg border border-gray-100 flex items-center px-4 py-3 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
             {/* Attachment Button */}
-            <button 
-            className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded-full transition-colors"
-            title="Attach file"
-            >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-            </button>
-
+            <AttachmentButton />
             {/* Text Input */}
             <input
             type="text"
@@ -125,6 +113,7 @@ const MessageBubble = ({ message }: { message: Message }) => {
             disabled={disabled}
             className="flex-1 bg-transparent border-none outline-none text-gray-700 placeholder-gray-400 px-4 text-base"
             />
+
 
             {/* Tools Button */}
             <button className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-50 rounded-full transition-colors mr-2">
