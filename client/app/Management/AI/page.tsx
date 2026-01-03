@@ -10,10 +10,7 @@ export default function AIPage() {
             <div className="flex flex-col flex-1 h-screen">
                 <header className="ml-2 mr-2 mb-2"><Hnavigation /></header>
                 <main className="flex-1 overflow-y-auto p-2 pb-5 relative">
-                    <div className="bg-[#ffffff] p-6 rounded-2xl shadow-lg shadow-black/5 h-full flex flex-col">
-                        {/* Header Section */}
-                        
-                        {/* Chat Input Section */}
+                    <div className="bg-[#ffffff] p-6 rounded-2xl shadow-lg shadow-black/5 h-full flex flex-col items-center justify-center">
                         <ChatBox />
                     </div>
                 </main>
