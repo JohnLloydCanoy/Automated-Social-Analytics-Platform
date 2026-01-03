@@ -112,11 +112,11 @@
 - **Limited Analytics** - Basic sentiment analysis; lacks advanced competitor insights
 - **No Content Templates** - Users must create posts from scratch
 - **Single Language** - English only, no internationalization yet
-- **Limited File Support** - Restricted attachment types and sizes
+- **Limited File Support** - Restricted attachment types and sizes(Currently aiming to attach pdf and images)
 
 ### **Security Considerations**
 - **API Keys in Environment** - Requires careful management of sensitive credentials
-- **No 2FA** - Two-factor authentication not yet implemented
+- **No 2FA** - Two-factor authentication not yet implemented (Surely study how to do this)
 - **Rate Limiting** - Client-side only; needs server-side enforcement
 - **Audit Logs** - No comprehensive logging for security monitoring
 
