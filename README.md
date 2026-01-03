@@ -128,7 +128,247 @@
 
 ---
 
-## 🔮 Future Updates & Roadmap
+## � Known Issues & Possible Bugs
+
+### **High Priority**
+- **🔴 Duplicate Message IDs** - Using `Date.now()` for message IDs can create duplicates if messages are sent rapidly
+  - **Impact:** React key warnings, potential UI rendering issues
+  - **Workaround:** Wait 1-2 seconds between messages
+  - **Fix Planned:** Implement `crypto.randomUUID()` or nanoid library
+
+- **🔴 API Connection Validation** - Invalid `NEXT_PUBLIC_API_URL` doesn't prevent app startup
+  - **Impact:** Silent failures, confusing error messages
+  - **Workaround:** Manually verify .env.local file
+  - **Fix Planned:** Add startup validation checks
+
+- **🔴 Message Optimistic Update Rollback** - Failed API calls don't remove optimistically added messages
+  - **Impact:** User sees sent message even if backend failed
+  - **Workaround:** Refresh page to see actual state
+  - **Fix Planned:** Implement proper error rollback mechanism
+
+### **Medium Priority**
+- **🟡 Auto-Scroll Race Condition** - Rapid messages may not scroll to bottom consistently
+  - **Impact:** User needs to manually scroll
+  - **Workaround:** Click in chat area to trigger scroll
+  - **Fix Planned:** Debounce scroll events
+
+- **🟡 No Loading State for Initial Data** - Dashboard shows empty before data loads
+  - **Impact:** Poor UX, appears broken momentarily
+  - **Workaround:** None
+  - **Fix Planned:** Add skeleton loaders
+
+- **🟡 Unhandled API Error Types** - All errors show generic "Try again!" message
+  - **Impact:** Users don't know if it's network, auth, or server issue
+  - **Workaround:** Check browser console
+  - **Fix Planned:** Implement specific error handling
+
+- **🟡 Attachment Button Non-Functional** - Button renders but doesn't handle file selection
+  - **Impact:** Feature appears broken
+  - **Workaround:** None currently
+  - **Fix Planned:** Implement file upload logic
+
+### **Low Priority**
+- **🟢 Memory Leak with Long Chat Sessions** - Messages array grows indefinitely
+  - **Impact:** Performance degrades after 100+ messages
+  - **Workaround:** Refresh page periodically
+  - **Fix Planned:** Implement message pagination/virtualization
+
+- **🟢 Inconsistent Indentation** - Mixed spacing in chatBox.tsx
+  - **Impact:** Code readability
+  - **Workaround:** None needed
+  - **Fix Planned:** Run Prettier formatting
+
+- **🟢 No Input Length Validation** - Users can send extremely long messages
+  - **Impact:** UI breaks with very long text
+  - **Workaround:** Keep messages under 500 characters
+  - **Fix Planned:** Add maxLength validation
+
+- **🟢 SVG Icons Repeated** - Inline SVGs duplicated across components
+  - **Impact:** Larger bundle size
+  - **Workaround:** None needed
+  - **Fix Planned:** Extract to icon component library
+
+### **Browser-Specific Issues**
+- **Safari:** Backdrop-blur may not render correctly on older versions
+- **Firefox:** Auto-scroll behavior slightly different from Chrome
+- **Mobile Safari:** Input may lose focus after sending message
+
+### **Reporting Bugs**
+If you encounter a bug not listed here:
+1. Check the browser console for error messages
+2. Open an issue on GitHub with:
+   - Description of the problem
+   - Steps to reproduce
+   - Expected vs actual behavior
+   - Browser and OS version
+   - Screenshots if applicable
+
+---
+
+## 🚀 Getting Started
+
+### **Prerequisites**
+- Node.js 18+ and npm/yarn
+- Python 3.9+
+- Supabase account (free tier works)
+- Google Gemini AI API key
+
+### **Installation**
+
+#### 1. Clone the Repository
+```bash
+git clone https://github.com/YOUR_USERNAME/Automated-Social-Analytics-Platform.git
+cd Automated-Social-Analytics-Platform
+```
+
+#### 2. Frontend Setup
+```bash
+cd client
+npm install
+# or
+yarn install
+
+# Create environment file
+cp .env.example .env.local
+
+# Add your environment variables to .env.local:
+# NEXT_PUBLIC_API_URL=http://localhost:8000
+# NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+# NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
+```
+
+#### 3. Backend Setup
+```bash
+cd ../server
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+# Mac/Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+# Create .env file
+# Add your API keys:
+# GEMINI_API_KEY=your_gemini_key
+# SUPABASE_URL=your_supabase_url
+# SUPABASE_KEY=your_supabase_key
+```
+
+#### 4. Run the Application
+```bash
+# Terminal 1: Start Backend
+cd server
+python main.py
+# Backend runs on http://localhost:8000
+
+# Terminal 2: Start Frontend
+cd client
+npm run dev
+# Frontend runs on http://localhost:3000
+```
+
+---
+
+## 🤝 Contributing & Collaboration
+
+We welcome contributions from developers of all skill levels! Here's how you can get involved:
+
+### **Ways to Contribute**
+
+#### 🐛 **Bug Fixes**
+- Check the [Known Issues](#-known-issues--possible-bugs) section
+- Fix a bug and submit a PR
+- Include tests if possible
+
+#### ✨ **New Features**
+- Check the [Roadmap](#-future-updates--roadmap) for planned features
+- Propose new features via GitHub Issues
+- Discuss implementation approach before starting
+
+#### 📝 **Documentation**
+- Improve README clarity
+- Add code comments
+- Create tutorials or guides
+- Fix typos
+
+#### 🧪 **Testing**
+- Write unit tests for existing features
+- Add integration tests
+- Report edge cases
+
+### **Contribution Workflow**
+
+1. **Fork the Repository**
+   ```bash
+   # Click "Fork" on GitHub, then:
+   git clone https://github.com/YOUR_USERNAME/Automated-Social-Analytics-Platform.git
+   ```
+
+2. **Create a Feature Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   # or
+   git checkout -b fix/bug-description
+   ```
+
+3. **Make Your Changes**
+   - Write clean, documented code
+   - Follow existing code style
+   - Test your changes locally
+
+4. **Commit with Clear Messages**
+   ```bash
+   git add .
+   git commit -m "feat: add streaming AI responses"
+   # or
+   git commit -m "fix: resolve duplicate message ID bug"
+   ```
+
+5. **Push and Create Pull Request**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+   Then open a Pull Request on GitHub
+
+### **Code Style Guidelines**
+- **TypeScript:** Use proper types, avoid `any`
+- **Python:** Follow PEP 8 conventions
+- **Components:** Keep components small and focused
+- **Comments:** Explain "why", not "what"
+- **Testing:** Add tests for new features
+
+### **Looking for Collaborators**
+
+We're especially looking for help with:
+- 🔐 **Security Experts** - Implement 2FA, audit code
+- 🎨 **UI/UX Designers** - Improve interface, create dark mode
+- 📱 **Mobile Developers** - Build React Native app
+- 🧪 **QA Engineers** - Write comprehensive tests
+- 📊 **Data Scientists** - Enhance analytics algorithms
+- 🌍 **Translators** - Add internationalization support
+
+### **Communication Channels**
+- **GitHub Issues** - Bug reports, feature requests
+- **Pull Requests** - Code contributions
+- **Discussions** - General questions, ideas
+
+### **Recognition**
+Contributors will be:
+- Listed in CONTRIBUTORS.md
+- Mentioned in release notes
+- Given credit in documentation
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## �🔮 Future Updates & Roadmap
 
 ### 🎯 **Phase 1: Core Enhancements (Q1 2026)**
 
