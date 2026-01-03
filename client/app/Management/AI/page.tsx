@@ -1,6 +1,6 @@
 import Hnavigation from "../Navigation/HNavigation";
 import VNagivation from "../Navigation/VNavigation";
-import ChatBox from "./chatBox";
+import ChatBox from "./assistant";
 
 
 export default function AIPage() {
@@ -12,17 +12,7 @@ export default function AIPage() {
                 <main className="flex-1 overflow-y-auto p-2 pb-5 relative">
                     <div className="bg-[#ffffff] p-6 rounded-2xl shadow-lg shadow-black/5 h-full flex flex-col">
                         {/* Header Section */}
-                        <div className="flex-1 flex flex-col items-center justify-center pb-8">
-                            <img
-                            src="/ASAP.png" 
-                            alt="ASAP Logo" 
-                            width={200} 
-                            height={200}
-                        />
-                            <div className="text-center space-y-4 mb-12">
-                                
-                            </div>
-                        </div>
+                        
                         {/* Chat Input Section */}
                         <ChatBox />
                     </div>
