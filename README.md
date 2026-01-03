@@ -96,7 +96,7 @@
 ### **Current Technical Limitations**
 - **Platform Integrations** - Currently limited; major platforms (Instagram, Twitter, TikTok) not yet integrated
 - **No Real-Time Updates** - WebSocket support pending, relies on polling for updates
-- **Message History** - AI chat doesn't persist conversation context between sessions
+- **Message History** - AI chat doesn't persist conversation context between sessions(Will further study this)
 - **Single User** - No multi-user or team collaboration features yet
 - **No Offline Support** - Requires active internet connection for all operations
 
