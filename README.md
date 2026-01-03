@@ -108,7 +108,7 @@
 - **Testing Coverage** - Limited automated tests currently implemented
 
 ### **Feature Gaps**
-- **No Mobile App** - Web-only interface, responsive design but no native mobile app
+- **No Mobile App** - Web-only interface, responsive design but no native mobile app(Soon will be adding this)
 - **Limited Analytics** - Basic sentiment analysis; lacks advanced competitor insights
 - **No Content Templates** - Users must create posts from scratch
 - **Single Language** - English only, no internationalization yet
