@@ -66,6 +66,66 @@
 
 ---
 
+## ✅ Advantages
+
+### **For Users**
+- **Single Dashboard Control** - Manage all social media accounts from one place, eliminating platform switching
+- **AI-Powered Assistance** - Get intelligent content suggestions and insights using Google Gemini AI
+- **Time Savings** - Automate repetitive tasks like scheduling and analytics reporting
+- **Data-Driven Decisions** - Sentiment analysis and comprehensive metrics guide your strategy
+- **Visual Planning** - Calendar view makes content planning intuitive and organized
+- **Real-Time Insights** - Monitor performance across platforms instantly
+
+### **For Developers**
+- **Modern Tech Stack** - Built with Next.js 14, TypeScript, and FastAPI for maintainability
+- **Type Safety** - TypeScript throughout reduces runtime errors and improves developer experience
+- **Scalable Architecture** - Separation of concerns (frontend/backend) allows independent scaling
+- **API-First Design** - Clean API layer makes integration and testing straightforward
+- **Open Source Potential** - Well-documented codebase ready for collaboration
+
+### **Business Value**
+- **Cost Effective** - Self-hosted solution reduces subscription costs from multiple SaaS tools
+- **Customizable** - Full control over features and data storage
+- **No Vendor Lock-in** - Own your data and infrastructure
+- **Competitive Edge** - AI-driven insights help stay ahead of trends
+
+---
+
+## ⚠️ Disadvantages & Limitations
+
+### **Current Technical Limitations**
+- **Platform Integrations** - Currently limited; major platforms (Instagram, Twitter, TikTok) not yet integrated
+- **No Real-Time Updates** - WebSocket support pending, relies on polling for updates
+- **Message History** - AI chat doesn't persist conversation context between sessions
+- **Single User** - No multi-user or team collaboration features yet
+- **No Offline Support** - Requires active internet connection for all operations
+
+### **Development & Maintenance**
+- **Self-Hosting Required** - Users must manage their own server infrastructure
+- **API Rate Limits** - Dependent on third-party APIs (Gemini AI, social platforms) with usage quotas
+- **Learning Curve** - Requires technical knowledge to set up and deploy
+- **Manual Updates** - No auto-update mechanism; users must manually pull updates
+- **Testing Coverage** - Limited automated tests currently implemented
+
+### **Feature Gaps**
+- **No Mobile App** - Web-only interface, responsive design but no native mobile app
+- **Limited Analytics** - Basic sentiment analysis; lacks advanced competitor insights
+- **No Content Templates** - Users must create posts from scratch
+- **Single Language** - English only, no internationalization yet
+- **Limited File Support** - Restricted attachment types and sizes
+
+### **Security Considerations**
+- **API Keys in Environment** - Requires careful management of sensitive credentials
+- **No 2FA** - Two-factor authentication not yet implemented
+- **Rate Limiting** - Client-side only; needs server-side enforcement
+- **Audit Logs** - No comprehensive logging for security monitoring
+
+### **Scalability Concerns**
+- **Database Performance** - May need optimization for large-scale deployments (1000+ users)
+- **Message Storage** - No pagination or cleanup strategy for old chat messages
+- **File Storage** - Attachments stored without compression or CDN integration
+- **Concurrent Users** - Not stress-tested for high concurrent load
+
 ---
 
 ## 🔮 Future Updates & Roadmap
