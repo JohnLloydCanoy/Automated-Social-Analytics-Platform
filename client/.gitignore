@@ -70,3 +70,4 @@ coverage/
 
 # Sentry/Error Tracking Config
 .sentryclirc
+.sentry/

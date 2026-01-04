@@ -282,34 +282,3 @@ async def health_check():
         "version": "1.0.0"
     }
 
-"""
-FUTURE ENDPOINTS TO ADD:
-
-    1. AUTHENTICATION
-    POST /api/auth/verify - Verify Supabase JWT token
-    
-    2. USER MANAGEMENT
-    GET /api/user/profile - Get user details
-    PUT /api/user/settings - Update user preferences
-    
-    3. PLATFORM CONNECTIONS
-    POST /api/platforms/connect - OAuth flow for social platforms
-    GET /api/platforms/status - Check connection status
-    DELETE /api/platforms/disconnect - Remove platform
-    
-    4. POST MANAGEMENT
-    POST /api/posts/create - Create new post
-    PUT /api/posts/{id} - Update post
-    DELETE /api/posts/{id} - Delete post
-    POST /api/posts/schedule - Schedule future post
-    
-    5. ANALYTICS
-    GET /api/analytics/trends - Growth trends over time
-    GET /api/analytics/compare - Platform comparison
-    GET /api/analytics/audience - Audience demographics
-    
-    6. AI TOOLS
-    POST /api/ai/generate-caption - AI-generated captions
-    POST /api/ai/suggest-hashtags - Hashtag suggestions
-    POST /api/ai/optimize-time - Best posting times
-    """
