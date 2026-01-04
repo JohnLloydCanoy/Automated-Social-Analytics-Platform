@@ -11,3 +11,9 @@ export interface Answer{
     date_answered: Date;
 }
 
+export interface ChatSession{
+    id: string;
+    questions: Question[];
+    answers: Answer[];
+    created_at: Date;
+}
