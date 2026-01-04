@@ -1,5 +1,7 @@
 "use client";
+import {useState} from "react";
 import { Mic, Plus, Hammer, ChevronDown } from "lucide-react";
+import { Question } from "../types";
 
 export default function ChatBox() {
     return (
