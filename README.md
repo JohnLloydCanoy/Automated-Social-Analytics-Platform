@@ -1,5 +1,17 @@
 # ⚡ Automated Social Analytics Platform (ASAP) ⚡
 
+# 🚧 ASAP (Automated Social Analytics Platform) - [Active Development]
+
+> **Note to Reviewers:**
+> This repository is currently in active development (v0.5).
+> The Core Architecture (Next.js + Python) is established, but the
+> AI Integration module is currently being refactored for better API efficiency.
+>
+> **Current Status:**
+> ✅ Frontend Dashboard (Next.js) - Functional
+> ✅ Database Schema (Supabase) - Linked
+> 🔄 AI Parsing Logic - In Progress (Refactoring)
+
 **ASAP** is a comprehensive social media management tool designed to help businesses and creators manage multiple platforms from a single dashboard. Built with a modern tech stack, it leverages AI to automate content creation, scheduling, and deep analytics.
 
 ---
