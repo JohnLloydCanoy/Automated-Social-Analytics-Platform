@@ -26,13 +26,6 @@ def ask_gemini(prompt: str) -> str:
         response = client.models.generate_content(
             model='gemini-2.0-flash-exp',  # Fastest model
             contents=prompt,
-            
-            # FUTURE: Add configuration
-            # config={
-            #     "temperature": 0.7,  # Creativity level (0-1)
-            #     "max_tokens": 1000,  # Limit response length
-            #     "system_instruction": "You are a social media expert..."
-            # }
         )
         
         # Extract text from response

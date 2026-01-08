@@ -10,8 +10,7 @@ export default function ChatBox() {
                 {/* Chat Box Container */}
                 <span>
                     <div>
-                        <h1 className="font-black text-xl text-gray-800">Chat Box</h1>
-                        <div className="border-1 p-4 mt-4 rounded-2xl shadow-lg shadow-black/5">
+                        <div className=" p-4 mt-4 rounded-2xl shadow-lg shadow-black/10">
                             {/*Plus Button */}
                             <div className="flex">
                                 <button className="hover:bg-blue-200 py-2 px-2 rounded-full flex items-center gap-2">
