@@ -28,6 +28,7 @@ def ask_gemini(prompt: str) -> str:
             contents=prompt,
         )
         
+        
         # Extract text from response
         return response.text
     
@@ -40,3 +41,6 @@ def ask_gemini(prompt: str) -> str:
             "I'm having trouble connecting to my AI brain right now. "
             "Please try again in a moment! 🤖"
         )
+
+def response_to_message(response: types.ContentGenerationResponse) -> str:
+    return response.text
