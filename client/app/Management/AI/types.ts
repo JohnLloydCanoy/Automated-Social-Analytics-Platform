@@ -1,4 +1,4 @@
-export interface Question{
+export interface Message {
     id: string;
     text: string;
     date_asked: Date;
@@ -13,7 +13,7 @@ export interface Answer{
 
 export interface ChatSession{
     id: string;
-    questions: Question[];
+    questions: Message[];
     answers: Answer[];
     created_at: Date;
 }

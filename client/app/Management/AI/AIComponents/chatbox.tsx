@@ -1,7 +1,5 @@
 "use client";
-import {useState} from "react";
 import { Mic, Plus, ArrowRight} from "lucide-react";
-import { Question } from "../types";
 
 export default function ChatBox() {
     return (
@@ -36,7 +34,7 @@ export default function ChatBox() {
                                     {/* Send Button */}
                                     <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition-colors">
                                         {/* Option A: Classic Arrow */}
-                                        <ArrowRight className="w-5 h-6" /> 
+                                        <ArrowRight strokeWidth={5} className="w-5 h-6" /> 
                                         
                                     </button>
                                 </div>
