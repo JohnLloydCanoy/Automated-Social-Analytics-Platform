@@ -47,3 +47,4 @@ def response_to_message(response: types.ContentGenerationResponse) -> str:
         return response.text
     elif response.candidates:
         return response.candidates[0].content
+    
