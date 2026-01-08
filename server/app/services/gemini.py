@@ -43,4 +43,7 @@ def ask_gemini(prompt: str) -> str:
         )
 
 def response_to_message(response: types.ContentGenerationResponse) -> str:
-    return response.text
+    if response.text:
+        return response.text
+    elif response.candidates:
+        return response.candidates[0].content
