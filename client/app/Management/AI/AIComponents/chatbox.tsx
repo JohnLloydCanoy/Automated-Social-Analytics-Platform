@@ -1,7 +1,52 @@
 "use client";
+import { useState } from "react";
 import { Mic, Plus, ArrowRight} from "lucide-react";
+import { Message } from "../types";
+import Conversation from "./conversation";
+
 
 export default function ChatBox() {
+    const  [input, setInput]= useState("");
+    const [isLoading, setIsLoading]= useState(false);
+    const [messages, setMessages] = useState<Message[]>([]);
+
+    const handleSend = async () => {
+        if (input.trim() === "") return;
+        // Handle sending message logic here
+        const newMessage: Message = {
+            id: Date.now().toString(),
+            text: input,
+            date_asked: new Date(),
+        };
+        setMessages([...messages, newMessage]);
+        setInput("");
+        setIsLoading(true);
+
+        // Simulate bot response
+        try{
+            const response = await fetch('/api/ai/respond', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    question: newMessage.text,
+                }),
+            });
+            const data = await response.json();
+            const botMessage: Message = {
+                id: Date.now().toString() + '-bot',
+                text: data.answer,
+                date_asked: new Date(),
+            };
+            setMessages([...messages, botMessage]);
+        } catch (error) {
+            console.error("Error fetching bot response:", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <>
             <main >
