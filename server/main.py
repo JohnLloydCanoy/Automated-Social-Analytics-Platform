@@ -1,8 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.endpoints import router as api_router
-
+from app.api.endpoints import ChatRequest, router as api_router
 # Initialize FastAPI
 app = FastAPI(title="ASAP Brain", version="1.0")
 
@@ -25,3 +24,5 @@ def read_root():
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+
+

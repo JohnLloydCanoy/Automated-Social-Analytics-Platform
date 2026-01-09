@@ -8,9 +8,11 @@ interface ConversationProps {
 
 export default function Conversation({ messages }: ConversationProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
+    
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
+    
     if (messages.length === 0) {
         return (
             <div className="text-center text-gray-500 mt-10">
@@ -18,16 +20,31 @@ export default function Conversation({ messages }: ConversationProps) {
             </div>
         );
     }
+    
     return (
-        <div className="space-y-4 overflow-y-auto max-h-[400px] p-4">
+        <div className="space-y-4 overflow-y-auto max-h-[400px] p-4 scrollbar-hide">
             {messages.map((msg) => (
                 <div key={msg.id} ref={scrollRef}>
                     <div className={`flex ${msg.answer ? 'justify-start' : 'justify-end'}`}>
-                        <div className={`max-w-[70%] p-4 rounded-2xl shadow ${msg.answer ? 'bg-gray-100' : 'bg-blue-600 text-white'}`}>
+                        <div className={`max-w-[70%] p-4 rounded-2xl shadow ${
+                            msg.answer ? 'bg-gray-100' : 'bg-blue-600 text-white'
+                        }`}>
                             <div className="flex items-start gap-3">
-                                {msg.answer ? <Bot className="w-6 h-6 text-gray-600 mt-1" /> : <User className="w-6 h-6 text-white mt-1" />}
+                                {msg.answer ? (
+                                    <Bot className="w-6 h-6 text-gray-600 mt-1" />
+                                ) : (
+                                    <User className="w-6 h-6 text-white mt-1" />
+                                )}
                                 <div>
+                                    {/* Show the message text */}
                                     <p className="whitespace-pre-wrap">{msg.text}</p>
+                                    
+                                    {/* If there's an answer, show it below */}
+                                    {msg.answer && msg.answer !== msg.text && (
+                                        <p className="mt-2 text-gray-600 whitespace-pre-wrap">
+                                            {msg.answer}
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                         </div>

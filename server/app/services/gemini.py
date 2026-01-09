@@ -3,6 +3,7 @@ from google import genai
 from google.genai import types
 from dotenv import load_dotenv
 
+
 # Load environment variables
 load_dotenv()
 
@@ -41,10 +42,4 @@ def ask_gemini(prompt: str) -> str:
             "I'm having trouble connecting to my AI brain right now. "
             "Please try again in a moment! 🤖"
         )
-
-def response_to_message(response: types.ContentGenerationResponse) -> str:
-    if response.text:
-        return response.text
-    elif response.candidates:
-        return response.candidates[0].content
-    
+        
