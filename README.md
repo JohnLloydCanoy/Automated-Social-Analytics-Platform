@@ -478,7 +478,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - CHAT GPT MODEL INTERGARTION
 
 ---
-
+git add .
+git commit -m "Updating"
+ git push
 ## 📷 Documentation 
 
 ![This is made on figma where we have the ideal interface of the app, optionally making it light and darkmode](./Documentation/IdealDashBoard.png)
