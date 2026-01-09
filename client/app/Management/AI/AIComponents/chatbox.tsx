@@ -10,9 +10,16 @@ export default function ChatBox() {
     const [isLoading, setIsLoading]= useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
 
+
     const handleSend = async () => {
         if (input.trim() === "") return;
-        // Handle sending message logic here
+
+        if (!process.env.NEXT_PUBLIC_API_URL) {
+            console.error("API URL is not defined");
+            return;
+        }
+
+        // USER Handle sending message logic 
         const newMessage: Message = {
             id: Date.now().toString(),
             text: input,
@@ -24,22 +31,24 @@ export default function ChatBox() {
 
         // Simulate bot response
         try{
-            const response = await fetch('/api/ai/respond', {
+            const apiURL = process.env.NEXT_PUBLIC_API_URL;
+            const response = await fetch(apiURL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    question: newMessage.text,
+                    message: newMessage.text,
                 }),
             });
             const data = await response.json();
             const botMessage: Message = {
                 id: Date.now().toString() + '-bot',
-                text: data.answer,
+                text: data.response,
                 date_asked: new Date(),
+                answer: data.response,
             };
-            setMessages([...messages, botMessage]);
+            setMessages(prev => [...prev.filter(m => m.id !== newMessage.id), botMessage]);
         } catch (error) {
             console.error("Error fetching bot response:", error);
         } finally {
@@ -66,6 +75,14 @@ export default function ChatBox() {
                                     <input
                                         type="text"
                                         placeholder="Type your message..."
+                                        value={input}
+                                        onChange={(e) => setInput(e.target.value)}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter' && !e.shiftKey) {
+                                                e.preventDefault();
+                                                handleSend();
+                                            }
+                                        }}
                                         className="w-full p-2 focus:outline-none"
                                     />
                                 </div>
@@ -77,10 +94,9 @@ export default function ChatBox() {
                                         <Mic className="w-5 h-5" />
                                     </button>
                                     {/* Send Button */}
-                                    <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition-colors">
+                                    <button onClick={handleSend} className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition-colors">
                                         {/* Option A: Classic Arrow */}
                                         <ArrowRight strokeWidth={5} className="w-5 h-6" /> 
-                                        
                                     </button>
                                 </div>
                             </div>

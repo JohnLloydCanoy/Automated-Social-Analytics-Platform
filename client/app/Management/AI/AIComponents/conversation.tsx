@@ -8,7 +8,6 @@ interface ConversationProps {
 
 export default function Conversation({ messages }: ConversationProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
-
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
