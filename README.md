@@ -477,6 +477,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 #### Expected Update Soon 
 - CHAT GPT MODEL INTERGARTION
 - ADDING 
+
+- CHAT GPT MODEL INTERGARTION
+- ADDING 
 ---
 
 ## 📷 Documentation 
