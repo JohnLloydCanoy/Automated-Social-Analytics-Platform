@@ -15,7 +15,7 @@
 > **Current Status:**
 > ✅ Frontend Dashboard (Next.js) - Functional
 > ✅ Database Schema (Supabase) - Linked
-> 🔄 AI Parsing Logic - In Progress (Refactoring)
+> 🔄 AI Parsing Logic - In Progress (Refactoring, and Actively Updating)
 
 **ASAP** is a comprehensive social media management tool designed to help businesses and creators manage multiple platforms from a single dashboard. Built with a modern tech stack, it leverages AI to automate content creation, scheduling, and deep analytics.
 
