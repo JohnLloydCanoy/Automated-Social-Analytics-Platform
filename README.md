@@ -456,6 +456,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [ ] Multi-language support (i18n)
 - [ ] Customizable themes
 
+----
 ### 🛡️ **Ongoing Improvements**
 
 #### Security
@@ -464,6 +465,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [ ] Rate limiting on all endpoints
 - [ ] XSS and CSRF protection
 - [ ] Regular security audits
+
 
 #### Code Quality
 - [ ] TypeScript strict mode
