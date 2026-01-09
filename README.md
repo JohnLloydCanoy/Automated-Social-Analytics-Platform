@@ -474,7 +474,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [ ] Code coverage >80%
 - [ ] Performance benchmarks
 
-#### Expected Update Soon 
+
 
 ## 📷 Documentation 
 
