@@ -218,7 +218,9 @@ If you encounter a bug not listed here:
    - Browser and OS version
    - Screenshots if applicable
 
+Activily Fixing the Bugs
 ---
+
 
 ## 🚀 Getting Started
 
