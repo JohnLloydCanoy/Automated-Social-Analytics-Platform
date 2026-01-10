@@ -2,11 +2,10 @@ import os
 import google.generativeai as genai # Standard Import
 from dotenv import load_dotenv
 
-# 1. Load Environment Variables
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
 
-# 2. Configure the "Standard" way (More reliable)
+
 if not api_key:
     print("❌ CRITICAL ERROR: GEMINI_API_KEY is missing from .env file!")
 else:
@@ -14,14 +13,13 @@ else:
 
 def ask_gemini(prompt: str) -> str:
     try:
-        # 3. Use the Standard Model approach
-        # Switched to 'gemini-1.5-flash' because '2.0-flash-exp' is unstable/beta
-        model = genai.GenerativeModel("gemini-1.5-flash")
+
+        model = genai.GenerativeModel("gemini-pro")
         
-        # 4. Generate Content (Simple Text Mode)
+
         response = model.generate_content(prompt)
         
-        # 5. Return the text
+
         return response.text
 
     except Exception as e:
