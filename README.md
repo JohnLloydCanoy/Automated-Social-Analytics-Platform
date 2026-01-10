@@ -228,7 +228,7 @@ If you encounter a bug not listed here:
 - Python 3.9+
 - Supabase account (free tier works)
 - Google Gemini AI API key
-- Soon
+
 
 ### **Installation**
 
