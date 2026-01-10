@@ -13,7 +13,7 @@ else:
 
 def ask_gemini(prompt: str) -> str:
     try:
-        model = genai.GenerativeModel("models/gemini-2.0-flash")
+        model = genai.GenerativeModel("gemini-flash-latest")
         response = model.generate_content(prompt)
         return response.text
     
