@@ -13,15 +13,10 @@ else:
 
 def ask_gemini(prompt: str) -> str:
     try:
-
-        model = genai.GenerativeModel("gemini-2.0-flash-exp")
-        
-
+        model = genai.GenerativeModel("models/gemini-2.0-flash")
         response = model.generate_content(prompt)
-        
-
         return response.text
-
+    
     except Exception as e:
         # This prints the REAL error to your terminal so you can see it
         print(f"\n❌ GEMINI CRASH DETAILS: {e}\n")
