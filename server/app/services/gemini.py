@@ -1,45 +1,32 @@
 import os
-from google import genai
-from google.genai import types
+import google.generativeai as genai # Standard Import
 from dotenv import load_dotenv
 
-
-# Load environment variables
+# 1. Load Environment Variables
 load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
 
-# ============================================
-# CONFIGURATION
-# ============================================
-
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-
-
-# Initialize Gemini client
-client = genai.Client(api_key=GEMINI_API_KEY)
-
-# ============================================
-# MAIN FUNCTION
-# ============================================
+# 2. Configure the "Standard" way (More reliable)
+if not api_key:
+    print("❌ CRITICAL ERROR: GEMINI_API_KEY is missing from .env file!")
+else:
+    genai.configure(api_key=api_key)
 
 def ask_gemini(prompt: str) -> str:
     try:
-        # Send request to Gemini
-        response = client.models.generate_content(
-            model='gemini-2.0-flash-exp',  # Fastest model
-            contents=prompt,
-        )
+        # 3. Use the Standard Model approach
+        # Switched to 'gemini-1.5-flash' because '2.0-flash-exp' is unstable/beta
+        model = genai.GenerativeModel("gemini-1.5-flash")
         
+        # 4. Generate Content (Simple Text Mode)
+        response = model.generate_content(prompt)
         
-        # Extract text from response
+        # 5. Return the text
         return response.text
-    
+
     except Exception as e:
-        # Log error details
-        print(f"❌ Gemini API Error: {str(e)}")
+        # This prints the REAL error to your terminal so you can see it
+        print(f"\n❌ GEMINI CRASH DETAILS: {e}\n")
         
-        # Return user-friendly error message
-        return (
-            "I'm having trouble connecting to my AI brain right now. "
-            "Please try again in a moment! 🤖"
-        )
-        
+        # Fallback message
+        return "I'm having trouble connecting. Check your Python Terminal for the error details!"
