@@ -226,9 +226,8 @@ If you encounter a bug not listed here:
 ### **Prerequisites**
 - Node.js 18+ and npm/yarn
 - Python 3.9+
-- Supabase account (free tier works)
+- Supabase account (free tier works / recommended)
 - Google Gemini AI API key
-
 
 ### **Installation**
 
