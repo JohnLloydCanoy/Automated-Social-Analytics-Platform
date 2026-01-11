@@ -46,6 +46,10 @@ const initialEvents = [
 export default function CalendarSegment() {
     const [events, setEvents] = useState(initialEvents);
 
+    const openDetailDDialogs = () => {
+        // Logic to open Detail D Dialogs
+    };
+
 
     const eventStyleGetter = (event: any) => {
         let backgroundColor = '#3b82f6'; // Default Blue
