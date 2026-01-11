@@ -84,7 +84,7 @@ export default function ChatBox() {
                 {/* Chat Input */}
                 <span>
                     <div>
-                        <div className="p-4 mt-4 rounded-2xl shadow-lg shadow-black/10">
+                        <div className="p-4 mt-1 rounded-2xl shadow-lg shadow-black/10">
                             <div className="flex items-center gap-2">
                                 {/* Plus Button */}
                                 <div className="flex">

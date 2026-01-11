@@ -23,7 +23,7 @@ export default function Conversation({ messages }: ConversationProps) {
         );
     }
     return (
-        <div className="space-y-4 overflow-y-auto max-h-[400px] p-4 scrollbar-hide">
+        <div className="space-y-4 overflow-y-auto max-h-[520px] p-4 scrollbar-hide">
             {messages.map((msg, index) => {
 
                 const isBot = !!msg.answer; 
