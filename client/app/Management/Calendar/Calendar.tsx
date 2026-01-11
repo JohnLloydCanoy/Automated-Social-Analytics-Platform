@@ -48,6 +48,9 @@ export default function CalendarSegment() {
 
     const openDetailDDialogs = () => {
         // Logic to open Detail D Dialogs
+        console.log("Detail D Dialogs opened");
+        setIsDetailDDialogsOpen(true);
+        
     };
 
 
@@ -89,20 +92,9 @@ export default function CalendarSegment() {
 
 
     const handleSelectSlot = ({ start, end }: SlotInfo) => {
-        const title = window.prompt('New Post Title:');
-        if (title) {
-            setEvents([
-                ...events,
-                {
-                    id: events.length + 1,
-                    start,
-                    end,
-                    title,
-                    platform: "Facebook", 
-                    time: format(start, 'h:mm a')
-                },
-            ]);
-        }
+        // Opens on detail dialog Dialogs
+        openDetailDDialogs();
+        
     };
 
     return (
