@@ -40,3 +40,16 @@ html {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose strong {
+  font-weight: 700;
+}
+.prose p {
+  margin-bottom: 0.5rem;
+}
