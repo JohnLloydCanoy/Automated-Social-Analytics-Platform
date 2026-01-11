@@ -1,6 +1,16 @@
-
+"use client";
+import {useState} from "react";
 
 export default function DetailDDialogs() {
+    interface DetailDDialogsProps {
+        isOpen: boolean;
+        onClose: () => void;
+    }
+    const [isOpen, setIsOpen] = useState(false);
+    const openDialog = () => setIsOpen(true);
+    const closeDialog = () => setIsOpen(false);
+
+    if (!isOpen) return null;
     return (
         <>
             <main>

@@ -2,7 +2,7 @@
 import { useEffect, useState, ChangeEvent, FormEvent } from "react";
 import { supabase } from "@/lib/supabaseClient"; 
 import GlobalLoader from "../../../Components/GlobalLoader";
-import { useAsyncAction } from "@/lib/useAsyncAction"; // 1. Import the hook
+import { useAsyncAction } from "@/lib/useAsyncAction"; 
 import { useRouter } from "next/navigation";
 
 interface SignUpProps {
