@@ -12,15 +12,10 @@ interface SignUpProps {
 }
 
 export default function SignUp({ isOpen, onClose, onSwitchToLogin }: SignUpProps) {
-    // 2. USE THE HOOK
-    // Instead of [loading, setLoading], we get all these tools:
-    // - isLoading: True/False switch
-    // - error: Stores error messages if something fails
-    // - start/stop/fail: Functions to control the process
+
     const router = useRouter();
     const { isLoading, error, start, stop, fail } = useAsyncAction(10000); 
 
-    // 3. FORM DATA STATE (Keep this!)
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
