@@ -9,6 +9,7 @@ import enUS from 'date-fns/locale/en-US';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import CustomEvent from './CustomEvent';
 import CustomToolbar from './CustomToolbar';
+import DetailDDialogs from './Components/detaild-dialogs';
 
 
 const locales = { 'en-US': enUS };

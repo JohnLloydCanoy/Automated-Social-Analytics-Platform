@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import LogIn from "../auth/login/page";
-import SignUp from "../auth/register/page"; // Ensure this path is correct
+import SignUp from "../auth/register/page"; 
 
 const navigationLinks = [
     { id: "Home", label: "Home" },
