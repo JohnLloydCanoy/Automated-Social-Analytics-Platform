@@ -47,10 +47,10 @@ export default function CalendarSegment() {
     const [events, setEvents] = useState(initialEvents);
 
     const openDetailDDialogs = () => {
-        // Logic to open Detail D Dialogs
-        console.log("Detail D Dialogs opened");
-        setIsDetailDDialogsOpen(true);
-        
+        if (typeof window !== 'undefined') {
+            const event = new CustomEvent('openDetailDDialogs');
+            window.dispatchEvent(event);
+        }
     };
 
 

@@ -10,7 +10,6 @@ const getIcon = (type: string) => {
     }
 };
 
-
 export default function CustomEvent({ event }: any) {
     return (
         <div className="flex items-center gap-2 p-1 h-full">
