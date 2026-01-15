@@ -11,6 +11,7 @@ import CustomEvent from './CustomEvent';
 import CustomToolbar from './CustomToolbar';
 import DetailDDialogs from './Components/detaild-dialogs';
 import {Events} from './types';
+import {getEventStyle} from './Components/socialPlatform';
 
 
 
@@ -50,41 +51,6 @@ export default function CalendarSegment() {
     const [isDetailDDialogsOpen, setIsDetailDDialogsOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
-    const eventStyleGetter = (event: any) => {
-        let backgroundColor = '#3b82f6'; // Default Blue
-        let borderLeft = '4px solid #1d4ed8';
-
-        switch (event.platform?.toLowerCase()) {
-            case 'facebook':
-                backgroundColor = '#eff6ff'; // Light Blue bg
-                borderLeft = '4px solid #1877F2'; // Facebook Blue
-                break;
-            case 'instagram':
-                backgroundColor = '#fdf2f8'; // Light Pink bg
-                borderLeft = '4px solid #E1306C'; // Insta Pink
-                break;
-            case 'twitter':
-                backgroundColor = '#f0f9ff'; // Light Sky bg
-                borderLeft = '4px solid #1DA1F2'; // Twitter Blue
-                break;
-            case 'linkedin':
-                backgroundColor = '#eff6ff';
-                borderLeft = '4px solid #0a66c2';
-                break;
-        }
-
-        return {
-            style: {
-                backgroundColor: backgroundColor,
-                border: 'none',
-                borderLeft: borderLeft,
-                borderRadius: '4px',
-                color: '#1f2937', // Dark gray text
-                display: 'block',
-                opacity: 0.9
-            }
-        };
-    };
 
 
     const handleSelectSlot = ({ start, end }: SlotInfo) => {
@@ -117,7 +83,7 @@ export default function CalendarSegment() {
                     toolbar: CustomToolbar 
                 }}
                 
-                eventPropGetter={eventStyleGetter}
+                eventPropGetter={getEventStyle}
 
                 selectable
                 onSelectSlot={handleSelectSlot}
