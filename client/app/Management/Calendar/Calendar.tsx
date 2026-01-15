@@ -13,8 +13,6 @@ import DetailDDialogs from './Components/detaild-dialogs';
 import {Events} from './types';
 import {getEventStyle} from './Components/socialPlatform';
 
-
-
 const locales = { 'en-US': enUS };
 const localizer = dateFnsLocalizer({ format, parse, startOfWeek, getDay, locales });
 

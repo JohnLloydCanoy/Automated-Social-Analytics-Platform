@@ -38,7 +38,7 @@ export default function VNavigation() {
                     <h6 className="text-gray-500 text-sm mt-0">Manage with AI</h6>
                 <div className="flex items-center">
                 <img 
-                        src="/JLpLaceHolder.jpg" 
+                        src="/JLpLaceHolder.png" 
                         alt=""
                         width={90}
                         height={90} 
