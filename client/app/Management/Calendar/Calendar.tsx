@@ -48,11 +48,6 @@ export default function CalendarSegment() {
     const [isDetailDDialogsOpen, setIsDetailDDialogsOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
-    const handleSelectSlot = ({ start, end }: SlotInfo) => {
-        setSelectedDate(start);
-        openDetailDDialogs();
-    }
-
     const eventStyleGetter = (event: any) => {
         let backgroundColor = '#3b82f6'; // Default Blue
         let borderLeft = '4px solid #1d4ed8';
@@ -91,8 +86,8 @@ export default function CalendarSegment() {
 
 
     const handleSelectSlot = ({ start, end }: SlotInfo) => {
-        // Opens on detail dialog Dialogs
-        openDetailDDialogs();
+        setSelectedDate(start);
+        setIsDetailDDialogsOpen(true);
         
     };
 
@@ -127,6 +122,10 @@ export default function CalendarSegment() {
 
                 defaultView="month"
                 views={['month', 'week', 'day']}
+            />
+            <DetailDDialogs 
+                isOpen={isDetailDDialogsOpen} 
+                onClose={() => setIsDetailDDialogsOpen(false)} 
             />
         </div>
     );
