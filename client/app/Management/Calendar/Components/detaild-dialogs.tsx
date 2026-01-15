@@ -1,9 +1,5 @@
 import { useState } from 'react';
-
-interface DetailDDialogsProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
+import { DetailDDialogsProps } from '../types';
 
 export default function DetailDDialogs({ isOpen, onClose }: DetailDDialogsProps) {
     if (!isOpen) return null;

@@ -14,7 +14,7 @@ export interface Events{
     ownComments?: string[];
 }
 
-interface DetailDDialogsProps {
+export interface DetailDDialogsProps {
     isOpen: boolean;
     onClose: () => void;
 }
