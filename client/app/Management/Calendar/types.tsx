@@ -10,4 +10,11 @@ export interface Events{
     caption?: string;
     music?: string;
     hashtags?: string[];
+    automaticComments?: boolean;
+    ownComments?: string[];
+}
+
+interface DetailDDialogsProps {
+    isOpen: boolean;
+    onClose: () => void;
 }
