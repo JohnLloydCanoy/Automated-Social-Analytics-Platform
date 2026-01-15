@@ -8,5 +8,19 @@ const STYLES : Record<string, {bg: string; border: string}> = {
     default:   { bg: '#3b82f6', border: '#1d4ed8' }, 
 };
 
+export const getEventStyle = (event: any) => {
+    const platformKey = event.platform?.toLowerCase() || 'default';
+    const theme = STYLES[platformKey] || STYLES.default;
 
-export default STYLES;
+    return {
+        style: {
+            backgroundColor: theme.bg,
+            borderLeft: `4px solid ${theme.border}`,
+            border: 'none',
+            borderRadius: '4px',
+            color: '#1f2937', 
+            display: 'block',
+            opacity: 0.9
+        }
+    };
+};
