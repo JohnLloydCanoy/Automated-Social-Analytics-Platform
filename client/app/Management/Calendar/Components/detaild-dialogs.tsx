@@ -5,6 +5,14 @@ interface DetailDDialogsProps {
     onClose: () => void;
 }
 
+interface Events{
+    title: string;
+    platform: string;
+    start: Date;
+    end: Date;
+    time: string;
+}
+
 export default function DetailDDialogs({ isOpen, onClose }: DetailDDialogsProps) {
     if (!isOpen) return null;
     
