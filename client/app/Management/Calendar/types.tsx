@@ -17,4 +17,5 @@ export interface Events{
 export interface DetailDDialogsProps {
     isOpen: boolean;
     onClose: () => void;
+    position?: { x: number; y: number; };
 }

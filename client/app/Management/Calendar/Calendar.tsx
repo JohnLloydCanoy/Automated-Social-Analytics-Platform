@@ -54,7 +54,6 @@ export default function CalendarSegment() {
     const handleSelectSlot = ({ start, end }: SlotInfo) => {
         setSelectedDate(start);
         setIsDetailDDialogsOpen(true);
-        
     };
 
     return (
