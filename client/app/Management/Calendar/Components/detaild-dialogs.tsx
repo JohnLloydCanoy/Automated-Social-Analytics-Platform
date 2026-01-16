@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { DetailDDialogsProps } from '../types';
 
+// Figuring out dialog positioning logic
+
 export default function DetailDDialogs({ isOpen, onClose, position }: DetailDDialogsProps) {
     const dialogRef = useRef<HTMLDivElement>(null);
     const [coords, setCoords] = useState({ x: 0, y: 0 });
