@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useRef } from 'react'; 
 import { Calendar, dateFnsLocalizer, SlotInfo } from 'react-big-calendar';
 import {format} from 'date-fns/format';
 import {parse} from 'date-fns/parse';
@@ -7,6 +7,7 @@ import {startOfWeek} from 'date-fns/startOfWeek';
 import {getDay} from 'date-fns/getDay';
 import {enUS} from 'date-fns/locale/en-US';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+
 import CustomEvent from './CustomEvent';
 import CustomToolbar from './CustomToolbar';
 import DetailDDialogs from './Components/detaild-dialogs';
@@ -50,14 +51,28 @@ export default function CalendarSegment() {
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
 
+    const clickRef = useRef({ x: 0, y: 0 });
 
-    const handleSelectSlot = ({ start, end }: SlotInfo) => {
+
+    const [dialogPos, setDialogPos] = useState({ x: 0, y: 0 });
+
+
+    const handleContainerClick = (e: React.MouseEvent) => {
+        clickRef.current = { x: e.clientX, y: e.clientY };
+    };
+
+    const handleSelectSlot = ({ start }: SlotInfo) => {
         setSelectedDate(start);
+        
+        setDialogPos(clickRef.current); 
         setIsDetailDDialogsOpen(true);
     };
 
     return (
-        <div className="h-[600px] bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+        <div 
+            className="h-[600px] bg-white p-4 rounded-2xl shadow-sm border border-gray-100"
+            onClickCapture={handleContainerClick}
+        >
 
             <style>{`
                 .rbc-calendar { font-family: inherit; }
@@ -74,7 +89,6 @@ export default function CalendarSegment() {
                 endAccessor="end"
                 style={{ height: 550 }}
                 
-
                 components={{
                     event: CustomEvent,   
                     toolbar: CustomToolbar 
@@ -88,9 +102,11 @@ export default function CalendarSegment() {
                 defaultView="month"
                 views={['month', 'week', 'day']}
             />
+            
             <DetailDDialogs 
                 isOpen={isDetailDDialogsOpen} 
                 onClose={() => setIsDetailDDialogsOpen(false)} 
+                position={dialogPos}
             />
         </div>
     );
