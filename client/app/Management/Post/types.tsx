@@ -4,4 +4,7 @@ export interface ScheduledPost{
     content: string;
     platform: string;
     scheduledTime: Date;
+    status: 'scheduled' | 'posted' | 'failed';
+    error?: string;
+
 }
