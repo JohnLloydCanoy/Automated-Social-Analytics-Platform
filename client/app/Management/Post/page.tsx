@@ -7,25 +7,29 @@ import { MASTER_PLATFORMS } from "../data/platform";
 import SocialPlatformCard from "@/Components/SocialPlatformCard"; 
 import AddPlatformModal from "@/Components/AddPlatformModal"; 
 
-
 export default function PostPage() {
+
     const [myPlatforms, setMyPlatforms] = useState(MASTER_PLATFORMS.slice(0, 4));
-        const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     
-        const availablePlatforms = MASTER_PLATFORMS.filter(p => !myPlatforms.some(mp => mp.name === p.name));
+    const availablePlatforms = MASTER_PLATFORMS.filter(p => !myPlatforms.some(mp => mp.name === p.name));
     
-        const handleAdd = (platform: any) => {
-            setMyPlatforms([...myPlatforms, platform]); 
-            setIsModalOpen(false); 
-        };
+    const handleAdd = (platform: any) => {
+        setMyPlatforms([...myPlatforms, platform]); 
+        setIsModalOpen(false); 
+    };
     
-        const handleRemove = (name: string) => {
-            setMyPlatforms(myPlatforms.filter(p => p.name !== name));
-        };
+    const handleRemove = (name: string) => {
+        setMyPlatforms(myPlatforms.filter(p => p.name !== name));
+    };
     
-        const handleToggle = (name: string) => {
-            setMyPlatforms(prev => prev.map(p => p.name === name ? { ...p, connected: !p.connected } : p));
-        };
+
+    const handleConnectionChange = (platformName: string, isConnected: boolean) => {
+        setMyPlatforms(prev => prev.map(p => 
+            p.name === platformName ? { ...p, connected: isConnected } : p
+        ));
+    };
+
     return (
         <div className="flex h-screen overflow-hidden p-2 bg-gray-50">
             <aside className="flex shrink-0"><VNagivation /></aside>
@@ -40,31 +44,30 @@ export default function PostPage() {
                     <div className="bg-white p-6 rounded-2xl shadow-lg shadow-black/5 mt-2">
                         <h1 className="font-black text-xl text-gray-800">Post Dashboard</h1>    
                         <p className="text-gray-500 text-sm mt-1">Create, edit, and manage your social media posts.</p>
-                        {/* Post management content goes here */}
+                        
                         <div className="overflow-x-auto mt-4 pb-4">
-                                                    <ul className="flex gap-6 py-4 px-2 w-fit mx-auto">
-                                                        {myPlatforms.map((account) => (
-                                                            <SocialPlatformCard 
-                                                                key={account.name}
-                                                                data={account}
-                                                                onRemove={() => handleRemove(account.name)}
-                                                                onToggle={() => handleToggle(account.name)}
-                                                            />
-                                                        ))}
+                            <ul className="flex gap-6 py-4 px-2 w-fit mx-auto">
+                                {myPlatforms.map((account) => (
+                                    <SocialPlatformCard 
+                                        key={account.name}
+                                        data={account}
+                                        onRemove={() => handleRemove(account.name)}
+                                        onConnectionChange={(isConnected) => handleConnectionChange(account.name, isConnected)}
+                                    />
+                                ))}
                         
-                                                        {availablePlatforms.length > 0 && (
-                                                            <li className="flex flex-col items-center gap-2 min-w-[80px] flex-shrink-0 pt-2">
-                                                                <button onClick={() => setIsModalOpen(true)} className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 border-2 border-dashed border-gray-300 w-[58px] h-[58px] flex items-center justify-center transition-colors">
-                                                                    <FaPlus className="text-gray-400" />
-                                                                </button>
-                                                                <span className="font-bold text-gray-400 text-sm">Add New</span>
-                                                            </li>
-                                                        )}
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                {availablePlatforms.length > 0 && (
+                                    <li className="flex flex-col items-center gap-2 min-w-[80px] flex-shrink-0 pt-2">
+                                        <button onClick={() => setIsModalOpen(true)} className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 border-2 border-dashed border-gray-300 w-[58px] h-[58px] flex items-center justify-center transition-colors">
+                                            <FaPlus className="text-gray-400" />
+                                        </button>
+                                        <span className="font-bold text-gray-400 text-sm">Add New</span>
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
+                    </div>
                         
-                                            {/* THIS IS THE PART THAT WAS MISSING */}
                     <AddPlatformModal 
                         isOpen={isModalOpen}
                         onClose={() => setIsModalOpen(false)}

@@ -22,8 +22,10 @@ export default function DashboardPage() {
         setMyPlatforms(myPlatforms.filter(p => p.name !== name));
     };
 
-    const handleToggle = (name: string) => {
-        setMyPlatforms(prev => prev.map(p => p.name === name ? { ...p, connected: !p.connected } : p));
+    const handleConnectionChange = (platformName: string, isConnected: boolean) => {
+        setMyPlatforms(prev => prev.map(p => 
+            p.name === platformName ? { ...p, connected: isConnected } : p
+        ));
     };
 
     return (
@@ -51,7 +53,7 @@ export default function DashboardPage() {
                                         key={account.name}
                                         data={account}
                                         onRemove={() => handleRemove(account.name)}
-                                        onToggle={() => handleToggle(account.name)}
+                                        onConnectionChange={(isConnected) => handleConnectionChange(account.name, isConnected)}
                                     />
                                 ))}
 
