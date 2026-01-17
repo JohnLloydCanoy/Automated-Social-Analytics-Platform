@@ -1,5 +1,6 @@
 import Hnavigation from "../Navigation/HNavigation";
 import VNagivation from "../Navigation/VNavigation";
+import AddPlatformModal from "@/Components/AddPlatformModal"; 
 
 export default function PostPage() {
     return (
