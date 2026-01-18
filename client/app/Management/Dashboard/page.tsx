@@ -10,9 +10,7 @@ import AddPlatformModal from "@/Components/AddPlatformModal";
 export default function DashboardPage() {
     const [myPlatforms, setMyPlatforms] = useState(MASTER_PLATFORMS.slice(0, 4));
     const [isModalOpen, setIsModalOpen] = useState(false);
-
     const availablePlatforms = MASTER_PLATFORMS.filter(p => !myPlatforms.some(mp => mp.name === p.name));
-
     const handleAdd = (platform: any) => {
         setMyPlatforms([...myPlatforms, platform]); 
         setIsModalOpen(false); 
@@ -27,6 +25,7 @@ export default function DashboardPage() {
             p.name === platformName ? { ...p, connected: isConnected } : p
         ));
     };
+    
 
     return (
         <div className="flex h-screen overflow-hidden p-2 bg-gray-50">
