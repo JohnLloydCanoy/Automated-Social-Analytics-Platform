@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FaTimes } from "react-icons/fa";
 import { supabase } from '../lib/supabaseClient'; 
-
+import ConnectSocial from './ConnectSocial';
 
 interface Props {
     data: any;
@@ -14,30 +14,9 @@ export default function SocialPlatformCard({ data, onRemove, onConnectionChange 
     const [isLoading, setIsLoading] = useState(false);
 
     const handleConnect = async () => {
-        if (data.connected) return; 
-
-        setIsLoading(true);
-        try {
-            const { error } = await supabase.auth.signInWithOAuth({
-                provider: data.id, 
-                options: {
-                    scopes: 'pages_manage_posts,pages_read_engagement', 
-                    redirectTo: 'http://localhost:3000/settings/account',
-                },
-            });
-            
-            if (error) throw error;
-            
-            onConnectionChange(true);
-
-        } catch (error: any) {
-            console.error("Connection failed:", error.message);
-            alert("Failed to connect " + data.name);
-        } finally {
-            setIsLoading(false);
-        }
+        // Simulate connection process
+        ConnectSocial()
     };
-
     return (
         <li className="relative flex flex-col items-center gap-2 min-w-[80px] flex-shrink-0 group">
             <button 

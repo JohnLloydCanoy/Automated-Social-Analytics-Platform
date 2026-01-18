@@ -3,6 +3,7 @@ import { useState } from "react";
 
 
 export default function ConnectSocial() {
+    const [isConnecting, setIsConnecting] = useState(false);
     return (
         <>
             <main>
