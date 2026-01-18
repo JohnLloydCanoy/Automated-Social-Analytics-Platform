@@ -9,14 +9,14 @@ interface Props {
     onConnectionChange: (isConnected: boolean) => void; 
 }
 
-export default function SocialPlatformCard({ data, onRemove }: Props) {
+export default function SocialPlatformCard({ data, onRemove, onConnectionChange }: Props) {
     const Icon = data.icon;
     const [isLoading, setIsLoading] = useState(false);
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    
     const handleConnect = async () => {
         // Simulate connection process
-        ConnectSocial()
-    };
+        };
     return (
         <li className="relative flex flex-col items-center gap-2 min-w-[80px] flex-shrink-0 group">
             <button 
