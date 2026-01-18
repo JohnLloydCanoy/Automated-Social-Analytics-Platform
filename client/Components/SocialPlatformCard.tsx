@@ -9,7 +9,7 @@ interface Props {
     onConnectionChange: (isConnected: boolean) => void; 
 }
 
-export default function SocialPlatformCard({ data, onRemove, onConnectionChange }: Props) {
+export default function SocialPlatformCard({ data, onRemove }: Props) {
     const Icon = data.icon;
     const [isLoading, setIsLoading] = useState(false);
 
