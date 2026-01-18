@@ -15,18 +15,15 @@ export default function DashboardPage() {
         setMyPlatforms([...myPlatforms, platform]); 
         setIsModalOpen(false); 
     };
-
     const handleRemove = (name: string) => {
         setMyPlatforms(myPlatforms.filter(p => p.name !== name));
     };
-
     const handleConnectionChange = (platformName: string, isConnected: boolean) => {
         setMyPlatforms(prev => prev.map(p => 
             p.name === platformName ? { ...p, connected: isConnected } : p
         ));
     };
     
-
     return (
         <div className="flex h-screen overflow-hidden p-2 bg-gray-50">
             <aside className="flex shrink-0"><VNagivation /></aside>
